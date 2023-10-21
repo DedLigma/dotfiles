@@ -15,30 +15,33 @@ cache_dir  = ""
 
 [opener]
 folder = [
-	{ exec = 'open -R "$@"', display_name = "Reveal in Finder" },
-	{ exec = '$EDITOR "$@"' },
+	{ exec = 'open -R "$@"', desc = "Reveal in Finder" },
+	{ exec = '$EDITOR "$@"', block = true, desc = "LunarVim" },
+	{ exec = 'codium "$@"', block = true, desc = "VScodium" },
 ]
 archive = [
-	{ exec = 'unar "$1"', display_name = "Extract here" },
+	{ exec = 'unar "$1"', desc = "Extract here" },
 ]
 text = [
-	{ exec = '$EDITOR "$@"', block = true },
+	{ exec = '$EDITOR "$@"', block = true, desc = "LunarVim" },
+	{ exec = 'codium "$@"', block = true, desc = "VScodium" },
+	{ exec = 'sudo nvim "$@"', block = true, desc = "Su NeoVim"},
 ]
 image = [
-	{ exec = 'gwenview "$@"', display_name = "Open" },
-	{ exec = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, display_name = "Show EXIF" },
+	{ exec = 'gwenview "$@"', desc = "Open" },
+	{ exec = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF" },
 ]
 video = [
-	{ exec = 'vlc "$@"' },
-	{ exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, display_name = "Show media info" },
+	{ exec = 'dragon "$@"' },
+	{ exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info" },
 ]
 audio = [
 	{ exec = 'vlc "$@"' },
-	{ exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, display_name = "Show media info" },
+	{ exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info" },
 ]
 fallback = [
-	{ exec = 'open "$@"', display_name = "Open" },
-	{ exec = 'open -R "$@"', display_name = "Reveal in Finder" },
+	{ exec = 'open "$@"', desc = "Open" },
+	{ exec = 'open -R "$@"', desc = "Reveal in Finder" },
 ]
 
 [open]
