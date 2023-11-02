@@ -57,16 +57,25 @@ lvim.plugins = {
       })
     end,
   },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+  }
 }
 
 -- DAP CONFIGURATION
-
+-- lvim.builtin.dap.active = true
 local dap = require('dap')
 dap.adapters.lldb = {
   type = 'executable',
   command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
   name = 'lldb'
 }
+local function getFullPath(relativePath)
+  return vim.fn.fnamemodify(vim.fn.expand(relativePath), ":p")
+end
 dap.configurations.cpp = {
   {
     name = 'Launch',
@@ -77,23 +86,21 @@ dap.configurations.cpp = {
     end,
     cwd = '${workspaceFolder}',
     stopOnEntry = false,
-    args = {},
-
-    -- 💀
-    -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
-    --
-    --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
-    --
-    -- Otherwise you might get the following error:
-    --
-    --    Error on launch: Failed to attach to the target process
-    --
-    -- But you should be aware of the implications:
-    -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
-    -- runInTerminal = false,
+    -- залупа чтоб аргументы считывались когда дебажишь
+    args = function()
+      local userInput = vim.fn.input('Args: ')
+      local args = {}
+      for arg in string.gmatch(userInput, "%S+") do
+        local file = io.open(getFullPath(arg), "r")
+        if file then
+          table.insert(args, getFullPath(arg))
+          io.close(file)
+        else
+          table.insert(args, arg)
+        end
+      end
+      return args    end,
   },
 }
-
--- If you want to use this for Rust and C, add something like this:
 
 dap.configurations.c = dap.configurations.cpp
