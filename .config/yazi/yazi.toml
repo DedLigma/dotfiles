@@ -15,7 +15,7 @@ cache_dir  = ""
 
 [opener]
 folder = [
-	{ exec = 'open -R "$@"', desc = "Reveal in Finder" },
+	{ exec = 'kde-open5 -R "$@"', desc = "Reveal in Finder" },
 	{ exec = '$EDITOR "$@"', block = true, desc = "LunarVim" },
 	{ exec = 'codium "$@"', block = true, desc = "VScodium" },
 ]
@@ -25,6 +25,7 @@ archive = [
 text = [
 	{ exec = '$EDITOR "$@"', block = true, desc = "LunarVim" },
 	{ exec = 'codium "$@"', block = true, desc = "VScodium" },
+  { exec = 'kde-open5 "$@"', block = true, desc = "Default app" },
 	{ exec = 'sudo nvim "$@"', block = true, desc = "Su NeoVim"},
 ]
 image = [
@@ -32,7 +33,7 @@ image = [
 	{ exec = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF" },
 ]
 video = [
-	{ exec = 'dragon "$@"' },
+	{ exec = 'haruna "$@"' },
 	{ exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info" },
 ]
 audio = [
@@ -40,8 +41,8 @@ audio = [
 	{ exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info" },
 ]
 fallback = [
-	{ exec = 'open "$@"', desc = "Open" },
-	{ exec = 'open -R "$@"', desc = "Reveal in Finder" },
+	{ exec = 'kde-open5 "$@"', desc = "Open" },
+	{ exec = 'kde-open5 -R "$@"', desc = "Reveal in Finder" },
 ]
 
 [open]
@@ -64,7 +65,7 @@ rules = [
 	{ mime = "application/x-bzip2", use = "archive" },
 	{ mime = "application/x-7z-compressed", use = "archive" },
 	{ mime = "application/x-rar", use = "archive" },
-
+  
 	{ mime = "*", use = "fallback" },
 ]
 
