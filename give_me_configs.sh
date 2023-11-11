@@ -36,3 +36,10 @@ echo
 echo -e "${GREEN}Start${NC} import ${BLUE}NeoVim${NC} config files\n"
 import_function ~/.config/nvim/init.lua ./config/nvim/
 echo
+echo -e "${GREEN}Start${NC} import ${BLUE}LF${NC} config files\n"
+import_function ~/.config/lf/lfrc ./config/lf/
+import_function ~/.config/lf/icons ./config/lf/
+import_function ~/.config/lf/colors ./config/lf/
+import_function ~/.config/lf/cleaner ./config/lf/
+import_function ~/.config/lf/preview ./config/lf/
+echo
