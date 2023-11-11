@@ -126,6 +126,10 @@ tt() {
   trans :ru "$text"
 }
 
+lg() {
+  lazygit $@
+}
+
 alias lf=lfcd
 lfcd () {
     tmp="$(mktemp)"

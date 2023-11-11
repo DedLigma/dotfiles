@@ -34,9 +34,11 @@ image = [
 ]
 video = [
 	{ exec = 'haruna "$@"' },
+	{ exec = 'vlc "$@"' },
 	{ exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info" },
 ]
 audio = [
+	{ exec = 'elisa "$@"' },
 	{ exec = 'vlc "$@"' },
 	{ exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info" },
 ]

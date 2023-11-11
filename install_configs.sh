@@ -48,7 +48,25 @@ move_function() {
   echo -e "Copied ${GREEN}$files_count ${BLUE}$name${NC} files/directories from $SRC to $DEST"
 }
 
+move_one_file_function() {
+  FILE=$1
+  DEST=$2
+  echo
+  echo "Copy $FILE to $DEST"
+  if [[ -f "$FILE" ]]; then
+    if [[ ! -d "$DEST" ]]; then
+      mkdir -p $DEST
+    fi
+    cp "$FILE" "$DEST$(basename $FILE)"
+  fi
+  echo
+}
+
+move_one_file_function ./.zshrc ~/
+
 move_function ./config/nvim/ ~/.config/nvim/ NeoVim
 move_function ./config/lf/ ~/.config/lf/ LF
 move_function ./config/lvim/ ~/.config/lvim/ lvim
 move_function ./config/yazi/ ~/.config/yazi/ yazi
+move_function ./config/kitty/ ~/.config/kitty/ kitty
+
