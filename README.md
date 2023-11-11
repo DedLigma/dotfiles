@@ -17,15 +17,15 @@ All configs was written for KDE system usage.
 Just organize the files into folders, or use scripts:
 
 ```
-chmod +x ./install_configs.sh
-./install_configs.sh
+chmod +x ./install.sh
+./install.sh
 ```
 Follow the instructions. Your existing files will be overwritten. But don't worry, the script will ask you what to overwrite and what not.
 
 To import updated configs:
 ```
-chmod +x ./give_me_configs.sh
-./give_me_configs.sh
+chmod +x ./import.sh
+./import.sh
 ```
 This will overwrite all files in `config` directory.
 

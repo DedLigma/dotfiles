@@ -6,7 +6,7 @@ RED='\033[0;31m'
 BLUE='\033[0;34m'
 L_RED='\033[1;31m'
 
-move_function() {
+move_files_from_dir() {
   name=$3
   SRC=$1
   DEST=$2
@@ -64,9 +64,9 @@ move_one_file_function() {
 
 move_one_file_function ./.zshrc ~/
 
-move_function ./config/nvim/ ~/.config/nvim/ NeoVim
-move_function ./config/lf/ ~/.config/lf/ LF
-move_function ./config/lvim/ ~/.config/lvim/ lvim
-move_function ./config/yazi/ ~/.config/yazi/ yazi
-move_function ./config/kitty/ ~/.config/kitty/ kitty
+move_files_from_dir ./config/nvim/ ~/.config/nvim/ NeoVim
+move_files_from_dir ./config/lf/ ~/.config/lf/ LF
+move_files_from_dir ./config/lvim/ ~/.config/lvim/ lvim
+move_files_from_dir ./config/yazi/ ~/.config/yazi/ yazi
+move_files_from_dir ./config/kitty/ ~/.config/kitty/ kitty
 
