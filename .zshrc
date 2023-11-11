@@ -121,6 +121,11 @@ clg() {
   fi
 }
 
+tt() {
+  text=\"$@\"
+  trans :ru "$text"
+}
+
 alias lf=lfcd
 lfcd () {
     tmp="$(mktemp)"

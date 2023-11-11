@@ -17,6 +17,9 @@ NC='\033[0;m'
 RED='\033[0;31m'
 BLUE='\033[0;34m'
 
+echo -e "${GREEN}Start${NC} import ${BLUE}.zshrc ${NC} files\n"
+import_function ~/.zshrc ./
+echo
 echo -e "${GREEN}Start${NC} import ${BLUE}Kitty${NC} config files\n"
 import_function ~/.config/kitty/kitty.conf ./config/kitty/
 import_function ~/.config/kitty/open-actions.conf ./config/kitty/
@@ -43,3 +46,4 @@ import_function ~/.config/lf/colors ./config/lf/
 import_function ~/.config/lf/cleaner ./config/lf/
 import_function ~/.config/lf/preview ./config/lf/
 echo
+
