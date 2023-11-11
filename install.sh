@@ -69,4 +69,4 @@ move_files_from_dir ./config/lf/ ~/.config/lf/ LF
 move_files_from_dir ./config/lvim/ ~/.config/lvim/ lvim
 move_files_from_dir ./config/yazi/ ~/.config/yazi/ yazi
 move_files_from_dir ./config/kitty/ ~/.config/kitty/ kitty
-
+move_files_from_dir ./config/lazygit/ ~/.config/lazygit/ lazygit

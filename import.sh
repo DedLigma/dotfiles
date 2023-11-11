@@ -46,4 +46,6 @@ import_function ~/.config/lf/colors ./config/lf/
 import_function ~/.config/lf/cleaner ./config/lf/
 import_function ~/.config/lf/preview ./config/lf/
 echo
-
+echo -e "${GREEN}Start${NC} import ${BLUE}LazyGit${NC} config files\n"
+import_function ~/.config/lazygit/config.yml ./config/lazygit/
+echo

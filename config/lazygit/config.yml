@@ -1,0 +1,7 @@
+os:
+  edit: 'lvim {{filename}}'
+  editAtLine: 'lvim +{{line}} {{filename}}'
+  editAtLineAndWait: 'lvim --block +{{line}} {{filename}}'
+  editInTerminal: true
+  openDirInEditor: 'lvim {{dir}}'
+  open: 'codium --goto {{filename}}'
