@@ -5,8 +5,10 @@ require('config_python')
 vim.opt.termguicolors = true
 
 vim.opt.wrap = true
+vim.opt.spell = true
+vim.opt.spelllang = { "en", "ru" }
 
--- vim.opt.langmap="ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
+vim.opt.langmap="ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
 
 lvim.colorscheme = "kanagawa"
 
@@ -22,4 +24,3 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     end
   end,
 })
-

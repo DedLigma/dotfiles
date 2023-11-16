@@ -21,6 +21,7 @@ folder = [
 ]
 archive = [
 	{ exec = 'unar "$1"', desc = "Extract here" },
+	{ exec = '$EDITOR "$@"', block = true, desc = "LunarVim" },
 ]
 text = [
 	{ exec = '$EDITOR "$@"', block = true, desc = "LunarVim" },
@@ -45,6 +46,7 @@ audio = [
 fallback = [
 	{ exec = 'kde-open5 "$@"', desc = "Open" },
 	{ exec = 'kde-open5 -R "$@"', desc = "Reveal in Finder" },
+	{ exec = '$EDITOR "$@"', block = true, desc = "LunarVim" },
 ]
 
 [open]
