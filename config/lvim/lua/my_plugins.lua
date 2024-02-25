@@ -19,6 +19,9 @@ lvim.plugins = {
 
 
   --NOT THEMES
+
+
+  { 'AckslD/swenv.nvim' },
   { 'mg979/vim-visual-multi' },
   {
     'lervag/vimtex',

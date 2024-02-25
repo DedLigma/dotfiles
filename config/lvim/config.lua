@@ -5,12 +5,16 @@ require('config_python')
 vim.opt.termguicolors = true
 
 vim.opt.wrap = true
-vim.opt.spell = true
-vim.opt.spelllang = { "en", "ru" }
+-- vim.opt.spell = true
+-- vim.opt.spelllang = { "en", "ru" }
 
 vim.opt.langmap="ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
 
 lvim.colorscheme = "kanagawa"
+
+vim.opt.foldmethod = "expr" -- default is "normal"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- default is ""
+vim.opt.foldenable = false 
 
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = "kanagawa",

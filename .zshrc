@@ -5,17 +5,96 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 export EDITOR=lvim
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="kphoen"
-# alanpeabody caandya bureau
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+export PATH="$PATH:/opt/nvim-linux64/bin"
+
+
+SSH_ENV="$HOME/.ssh/agent-environment"
+
+function start_agent {
+    echo "Initialising new SSH agent..."
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add;
+}
+
+# Source SSH settings, if applicable
+
+if [ -f "${SSH_ENV}" ]; then
+    . "${SSH_ENV}" > /dev/null
+    #ps ${SSH_AGENT_PID} doesn't work under cywgin
+    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
+fi
+
+export PATH="/home/dedligma/.local/bin:$PATH"
+
+# export SDL_VIDEODRIVER=x11
+# export steam
+
+alias ls='ls --hyperlink=auto --color=auto'
+
+clg() {
+  if [[ $1 == *.cpp ]]; then
+    clang++ -std=c++20 "$@"
+  elif [[ $1 == *.c ]]; then
+    clang "$@"
+  else
+    echo "Unknown file type"
+  fi
+}
+
+tt() {
+  text=\"$@\"
+  trans :ru "$text"
+}
+
+lg() {
+  lazygit $@
+}
+
+alias lf=lfcd
+lfcd () {
+    tmp="$(mktemp)"
+    # 'command' is needed in case 'lfcd' is aliased to 'lf'
+    command lfrun -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        if [ -d "$dir" ]; then
+            if [ "$dir" != "$(pwd)" ]; then
+                cd "$dir"
+            fi
+        fi
+    fi
+}
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+# alias open=kde-open5
+
+function az() {
+    tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+    yazi --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
+
+plugins=(
+  git 
+  command-not-found
+)
+
+source $ZSH/oh-my-zsh.sh
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -71,12 +150,6 @@ ZSH_THEME="kphoen"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git 
-  command-not-found
-)
-
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -103,60 +176,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-export PATH="/home/dedligma/.local/bin:$PATH"
-
-# export SDL_VIDEODRIVER=x11
-# export steam
-
-alias ls='ls --hyperlink=auto --color=auto'
-
-clg() {
-  if [[ $1 == *.cpp ]]; then
-    clang++ -std=c++20 "$@"
-  elif [[ $1 == *.c ]]; then
-    clang "$@"
-  else
-    echo "Unknown file type"
-  fi
-}
-
-tt() {
-  text=\"$@\"
-  trans :ru "$text"
-}
-
-lg() {
-  lazygit $@
-}
-
-alias lf=lfcd
-lfcd () {
-    tmp="$(mktemp)"
-    # 'command' is needed in case 'lfcd' is aliased to 'lf'
-    command lfrun -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        if [ -d "$dir" ]; then
-            if [ "$dir" != "$(pwd)" ]; then
-                cd "$dir"
-            fi
-        fi
-    fi
-}
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-
-alias open=kde-open5
-
-function az() {
-    tmp="$(mktemp -t "yazi-cwd.XXXXX")"
-    yazi --cwd-file="$tmp"
-    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-        cd -- "$cwd"
-    fi
-    rm -f -- "$tmp"
-}
-
