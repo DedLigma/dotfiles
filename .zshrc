@@ -1,5 +1,4 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -8,7 +7,8 @@ export EDITOR=lvim
 ZSH_THEME="kphoen"
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
-
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export PATH="/home/dedligma/.local/bin:$PATH"
 
 SSH_ENV="$HOME/.ssh/agent-environment"
 
@@ -33,10 +33,9 @@ else
     start_agent;
 fi
 
-export PATH="/home/dedligma/.local/bin:$PATH"
+#export PATH="/home/dedligma/.local/bin:$PATH"
+export PATH="$PATH:/home/dedligma/.cargo/bin"
 
-# export SDL_VIDEODRIVER=x11
-# export steam
 
 alias ls='ls --hyperlink=auto --color=auto'
 
@@ -57,22 +56,6 @@ tt() {
 
 lg() {
   lazygit $@
-}
-
-alias lf=lfcd
-lfcd () {
-    tmp="$(mktemp)"
-    # 'command' is needed in case 'lfcd' is aliased to 'lf'
-    command lfrun -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        if [ -d "$dir" ]; then
-            if [ "$dir" != "$(pwd)" ]; then
-                cd "$dir"
-            fi
-        fi
-    fi
 }
 
 export NVM_DIR="$HOME/.nvm"

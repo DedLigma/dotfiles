@@ -24,7 +24,6 @@ archive = [
 ]
 text = [
 	{ exec = '$EDITOR "$@"', block = true, desc = "LunarVim" },
-	{ exec = 'code "$@"', block = true, desc = "VS Code" },
   { exec = 'open "$@"', block = true, desc = "Default app" },
 	{ exec = 'nvim "$@"', block = true, desc = "NeoVim"},
 ]

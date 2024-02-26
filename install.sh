@@ -65,7 +65,6 @@ move_one_file_function() {
 move_one_file_function ./.zshrc ~/
 
 move_files_from_dir ./config/nvim/ ~/.config/nvim/ NeoVim
-move_files_from_dir ./config/lf/ ~/.config/lf/ LF
 move_files_from_dir ./config/lvim/ ~/.config/lvim/ lvim
 move_files_from_dir ./config/yazi/ ~/.config/yazi/ yazi
 move_files_from_dir ./config/kitty/ ~/.config/kitty/ kitty

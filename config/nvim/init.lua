@@ -1,5 +1,5 @@
 vim.api.nvim_create_autocmd("ColorScheme", {
-    pattern = "kanagawa",
+	pattern = "kanagawa",
     callback = function()
         if vim.o.background == "light" then
             vim.fn.system("kitty +kitten themes Kanagawa_light")
