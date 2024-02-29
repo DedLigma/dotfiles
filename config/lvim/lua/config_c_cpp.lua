@@ -4,9 +4,9 @@ lvim.builtin.treesitter.highlight.enable = true
 
 lvim.builtin.treesitter.ensure_installed = { "cpp", "c" }
 
-table.insert(lvim.plugins, {
-  "p00f/clangd_extensions.nvim",
-})
+-- table.insert(lvim.plugins, {
+--   "p00f/clangd_extensions.nvim",
+-- })
 
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "clangd" })
 

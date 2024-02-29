@@ -23,9 +23,9 @@ archive = [
 	{ exec = '$EDITOR "$@"', block = true, desc = "LunarVim" },
 ]
 text = [
-	{ exec = '$EDITOR "$@"', block = true, desc = "LunarVim" },
+	{ exec = '$EDITOR "$@"', block = true, desc = "Editor" },
+	{ exec = '"$@"', block = true, desc = "exec"},
   { exec = 'open "$@"', block = true, desc = "Default app" },
-	{ exec = 'nvim "$@"', block = true, desc = "NeoVim"},
 ]
 image = [
 	{ exec = 'open "$@"', desc = "Open" },

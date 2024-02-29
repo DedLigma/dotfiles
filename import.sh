@@ -38,6 +38,30 @@ import_function ~/.config/yazi/keymap.toml ./config/yazi/
 echo
 echo -e "${GREEN}Start${NC} import ${BLUE}NeoVim${NC} config files\n"
 import_function ~/.config/nvim/init.lua ./config/nvim/
+import_function ~/.config/nvim/lazy-lock.json ./config/nvim/
+import_function ~/.config/nvim/init.lua.bak ./config/nvim/
+
+import_function ~/.config/nvim/lua/core/init.lua ./config/nvim/core/
+import_function ~/.config/nvim/lua/core/utils.lua ./config/nvim/core/
+import_function ~/.config/nvim/lua/core/mappings.lua ./config/nvim/core/
+import_function ~/.config/nvim/lua/core/bootstrap.lua ./config/nvim/core/
+import_function ~/.config/nvim/lua/core/default_config.lua ./config/nvim/core/
+
+import_function ~/.config/nvim/lua/plugins/init.lua ./config/nvim/plugins/
+import_function ~/.config/nvim/lua/plugins/configs/cmp.lua ./config/nvim/plugins/configs/
+import_function ~/.config/nvim/lua/plugins/configs/mason.lua ./config/nvim/plugins/configs/
+import_function ~/.config/nvim/lua/plugins/configs/others.lua ./config/nvim/plugins/configs/
+import_function ~/.config/nvim/lua/plugins/configs/nvimtree.lua ./config/nvim/plugins/configs/
+import_function ~/.config/nvim/lua/plugins/configs/lazy_nvim.lua ./config/nvim/plugins/configs/
+import_function ~/.config/nvim/lua/plugins/configs/lspconfig.lua ./config/nvim/plugins/configs/
+import_function ~/.config/nvim/lua/plugins/configs/telescope.lua ./config/nvim/plugins/configs/
+import_function ~/.config/nvim/lua/plugins/configs/treesitter.lua ./config/nvim/plugins/configs/
+
+import_function ~/.config/nvim/lua/custom/mappings.lua ./config/nvim/lua/custom/
+import_function ~/.config/nvim/lua/custom/chadrc.lua ./config/nvim/lua/custom/
+import_function ~/.config/nvim/lua/custom/plugins.lua ./config/nvim/lua/custom/
+import_function ~/.config/nvim/lua/custom/configs/lspconfig.lua ./config/nvim/lua/custom/configs/
+import_function ~/.config/nvim/lua/custom/configs/null-ls.lua ./config/nvim/lua/custom/configs/
 echo
 echo -e "${GREEN}Start${NC} import ${BLUE}LazyGit${NC} config files\n"
 import_function ~/.config/lazygit/config.yml ./config/lazygit/

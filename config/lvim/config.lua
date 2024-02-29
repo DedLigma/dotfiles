@@ -1,5 +1,5 @@
 require('my_plugins')
-require('config_c_cpp')
+-- require('config_c_cpp')
 require('config_python')
 
 vim.opt.termguicolors = true
@@ -9,6 +9,8 @@ vim.opt.wrap = true
 -- vim.opt.spelllang = { "en", "ru" }
 
 vim.opt.langmap="ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
+
+lvim.lsp.automatic_servers_installation = false
 
 lvim.colorscheme = "kanagawa"
 
