@@ -3,7 +3,6 @@ local on_attach = base.on_attach
 local capabilities = base.capabilities
 
 local lspconfig = require("lspconfig")
-local util = require("lspconfig/util")
 
 lspconfig.clangd.setup({
 	on_attach = function(client, bufnr)
@@ -19,36 +18,11 @@ lspconfig.pyright.setup({
 	filetypes = { "python" },
 })
 
-local pyservers = {
-	"pyright",
-	"ruff_lsp",
-}
+local servers = { "lua_ls", "neocmake" }
 
-for _, lsp in ipairs(pyservers) do
+for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
-		filetypes = { "python" },
 	})
 end
-
-lspconfig.lua_ls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	filetypes = { "lua" },
-})
-
-lspconfig.cmake.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	filetypes = { "cmake" },
-})
-
--- local servers = { "lua_ls", "neocmake" }
---
--- for _, lsp in ipairs(servers) do
--- 	lspconfig[lsp].setup({
--- 		on_attach = on_attach,
--- 		capabilities = capabilities,
--- 	})
--- end
