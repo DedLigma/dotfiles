@@ -1,17 +1,18 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-export EDITOR=nvim
+export EDITOR=helix
 ZSH_THEME="kphoen"
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
-export PATH="/home/dedligma/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="~/.npm-global/bin:$PATH"
 
-export PATH="$PATH:/home/dedligma/.cargo/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 
 
 alias ls='ls --hyperlink=auto --color=auto'
+alias hx='helix'
 
 clg() {
   if [[ $1 == *.cpp ]]; then
