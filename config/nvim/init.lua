@@ -1,21 +1,30 @@
-require "core"
+vim.keymap.set("", "<Space>", "<Nop>")
+vim.g.mapleader = " "
 
-local custom_init_path = vim.api.nvim_get_runtime_file("lua/custom/init.lua", false)[1]
+vim.wo.number = true
 
-if custom_init_path then
-  dofile(custom_init_path)
-end
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
-require("core.utils").load_mappings()
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.softtabstop = 4
 
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
--- bootstrap lazy.nvim!
-if not vim.loop.fs_stat(lazypath) then
-  require("core.bootstrap").gen_chadrc_template()
-  require("core.bootstrap").lazy(lazypath)
-end
+require("plugin_manager")
+local plugins = require("plugins")
+require("lazy").setup(plugins, opts)
 
-dofile(vim.g.base46_cache .. "defaults")
-vim.opt.rtp:prepend(lazypath)
-require "plugins"
+
+require("mapping")
+
+require("lang_config")
+
+
+
+-- vim.g.clipboard += 'unnamedplus'
+
+-- vim.opt.background = 'dark'
+-- vim.g.colors_name = 'onedark'
+-- require('doom').set()

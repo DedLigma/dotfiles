@@ -15,36 +15,36 @@ cache_dir  = ""
 
 [opener]
 folder = [
-	{ exec = 'open "$@"', desc = "Reveal in Finder" },
-	{ exec = '$EDITOR "$@"', block = true, desc = "LunarVim" },
+	{ run = 'open "$@"', desc = "Reveal in Finder" },
+	{ run = '$EDITOR "$@"', block = true, desc = "LunarVim" },
 ]
 archive = [
-	{ exec = 'unar "$1"', desc = "Extract here" },
-	{ exec = '$EDITOR "$@"', block = true, desc = "LunarVim" },
+	{ run = 'unar "$1"', desc = "Extract here" },
+	{ run = '$EDITOR "$@"', block = true, desc = "LunarVim" },
 ]
 text = [
-	{ exec = '$EDITOR "$@"', block = true, desc = "Editor" },
-	{ exec = '"$@"', block = true, desc = "exec"},
-  { exec = 'open "$@"', block = true, desc = "Default app" },
+	{ run = '$EDITOR "$@"', block = true, desc = "Editor" },
+	{ run = '"$@"', block = true, desc = "run"},
+  { run = 'open "$@"', block = true, desc = "Default app" },
 ]
 image = [
-	{ exec = 'open "$@"', desc = "Open" },
-	{ exec = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF" },
+	{ run = 'open "$@"', desc = "Open" },
+	{ run = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF" },
 ]
 video = [
-	{ exec = 'haruna "$@"' },
-	{ exec = 'vlc "$@"' },
-	{ exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info" },
+	{ run = 'haruna "$@"' },
+	{ run = 'vlc "$@"' },
+	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info" },
 ]
 audio = [
-	{ exec = 'elisa "$@"' },
-	{ exec = 'vlc "$@"' },
-	{ exec = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info" },
+	{ run = 'elisa "$@"' },
+	{ run = 'vlc "$@"' },
+	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info" },
 ]
 fallback = [
-	{ exec = 'open "$@"', desc = "Open" },
-	{ exec = 'open -R "$@"', desc = "Reveal in Finder" },
-	{ exec = '$EDITOR "$@"', block = true, desc = "LunarVim" },
+	{ run = 'open "$@"', desc = "Open" },
+	{ run = 'open -R "$@"', desc = "Reveal in Finder" },
+	{ run = '$EDITOR "$@"', block = true, desc = "LunarVim" },
 ]
 
 [open]
