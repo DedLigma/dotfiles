@@ -13,6 +13,7 @@ export PATH="$PATH:$HOME/.cargo/bin"
 
 alias ls='ls --hyperlink=auto --color=auto'
 alias hx='helix'
+alias gt='gitui'
 
 clg() {
   if [[ $1 == *.cpp ]]; then
@@ -27,10 +28,6 @@ clg() {
 tt() {
   text=\"$@\"
   trans :ru "$text"
-}
-
-lg() {
-  lazygit $@
 }
 
 export NVM_DIR="$HOME/.nvm"
