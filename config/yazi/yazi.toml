@@ -11,16 +11,16 @@ show_symlink   = true
 tab_size   = 3
 max_width  = 600
 max_height = 900
-cache_dir  = ""
+cache_dir  = "~/.cache/yazi"
 
 [opener]
 folder = [
-	{ run = 'open "$@"', desc = "Reveal in Finder" },
-	{ run = '$EDITOR "$@"', block = true, desc = "LunarVim" },
+	{ run = 'kde-open "$@"', desc = "Reveal in Finder" },
+	{ run = '$EDITOR "$@"', block = true, desc = "Editor" },
 ]
 archive = [
 	{ run = 'unar "$1"', desc = "Extract here" },
-	{ run = '$EDITOR "$@"', block = true, desc = "LunarVim" },
+	{ run = '$EDITOR "$@"', block = true, desc = "Editor" },
 ]
 text = [
 	{ run = '$EDITOR "$@"', block = true, desc = "Editor" },
@@ -28,7 +28,7 @@ text = [
   { run = 'open "$@"', block = true, desc = "Default app" },
 ]
 image = [
-	{ run = 'open "$@"', desc = "Open" },
+	{ run = 'kde-open "$@"', desc = "Open" },
 	{ run = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF" },
 ]
 video = [
@@ -42,9 +42,9 @@ audio = [
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info" },
 ]
 fallback = [
-	{ run = 'open "$@"', desc = "Open" },
+	{ run = 'kde-open "$@"', desc = "Open" },
 	{ run = 'open -R "$@"', desc = "Reveal in Finder" },
-	{ run = '$EDITOR "$@"', block = true, desc = "LunarVim" },
+	{ run = '$EDITOR "$@"', block = true, desc = "Editor" },
 ]
 
 [open]
