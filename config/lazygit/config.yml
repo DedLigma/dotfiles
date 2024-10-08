@@ -1,0 +1,7 @@
+os:
+  edit: '$EDITOR {{filename}}'
+  editAtLine: '$EDITOR +{{line}} {{filename}}'
+  editAtLineAndWait: '$EDITOR --block +{{line}} {{filename}}'
+  editInTerminal: true
+  openDirInEditor: '$EDITOR {{dir}}'
+  open: '$EDITOR --goto {{filename}}'
