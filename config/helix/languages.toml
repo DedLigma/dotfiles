@@ -1,4 +1,13 @@
 [[language]]
+name = "cmake"
+auto-format = false
+language-servers = [{ name = "neocmakelsp" }]
+
+[language-server.neocmakelsp]
+command = "neocmakelsp"
+args = ["--stdio"]
+
+[[language]]
 name = "go"
 roots = ["go.work", "go.mod"]
 auto-format = false

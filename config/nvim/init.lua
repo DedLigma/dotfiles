@@ -1,30 +1,20 @@
-vim.keymap.set("", "<Space>", "<Nop>")
-vim.g.mapleader = " "
+-- This file simply bootstraps the installation of Lazy.nvim and then calls other files for execution
+-- This file doesn't necessarily need to be touched, BE CAUTIOUS editing this file and proceed at your own risk.
+vim.opt.termguicolors = true
+local lazypath = vim.env.LAZY or vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+if not (vim.env.LAZY or (vim.uv or vim.loop).fs_stat(lazypath)) then
+  -- stylua: ignore
+  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
+end
+vim.opt.rtp:prepend(lazypath)
 
-vim.wo.number = true
+-- validate that lazy is available
+if not pcall(require, "lazy") then
+  -- stylua: ignore
+  vim.api.nvim_echo({ { ("Unable to load lazy from: %s\n"):format(lazypath), "ErrorMsg" }, { "Press any key to exit...", "MoreMsg" } }, true, {})
+  vim.fn.getchar()
+  vim.cmd.quit()
+end
 
-vim.o.ignorecase = true
-vim.o.smartcase = true
-
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.softtabstop = 4
-
-
-require("plugin_manager")
-local plugins = require("plugins")
-require("lazy").setup(plugins, opts)
-
-
-require("mapping")
-
-require("lang_config")
-
-
-
--- vim.g.clipboard += 'unnamedplus'
-
--- vim.opt.background = 'dark'
--- vim.g.colors_name = 'onedark'
--- require('doom').set()
+require "lazy_setup"
+require "polish"
