@@ -12,6 +12,7 @@ return {
     event = "BufRead",
     config = function() require("lsp_signature").setup() end,
   },
+  { "rebelot/kanagawa.nvim" },
   {
     "rockyzhang24/arctic.nvim",
     dependencies = { "rktjmp/lush.nvim" },
@@ -19,16 +20,10 @@ return {
     branch = "main",
     priority = 1000,
   },
-  "lunarvim/darkplus.nvim",
-  {
-    "uloco/bluloco.nvim",
-    lazy = false,
-    priority = 1000,
-    dependencies = { "rktjmp/lush.nvim" },
-    config = function()
-      -- your optional config goes here, see below.
-    end,
-  },
+
+  { "EdenEast/nightfox.nvim" },
+  { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
+  { "bluz71/vim-nightfly-colors", name = "nightfly", lazy = false, priority = 1000 },
   -- == Examples of Overriding Plugins ==
 
   -- customize alpha options
