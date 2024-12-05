@@ -20,6 +20,23 @@ return {
     branch = "main",
     priority = 1000,
   },
+  {
+    "smoka7/multicursors.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "nvimtools/hydra.nvim",
+    },
+    opts = {},
+    cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+    keys = {
+      {
+        mode = { "v", "n" },
+        "<Leader>m",
+        "<cmd>MCstart<cr>",
+        desc = "Multicursor",
+      },
+    },
+  },
 
   { "EdenEast/nightfox.nvim" },
   { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
@@ -55,34 +72,66 @@ return {
       luasnip.filetype_extend("javascript", { "javascriptreact" })
     end,
   },
-
   {
-    "windwp/nvim-autopairs",
-    config = function(plugin, opts)
-      require "astronvim.plugins.configs.nvim-autopairs"(plugin, opts) -- include the default astronvim config that calls the setup call
-      -- add more custom autopairs configuration such as custom rules
-      local npairs = require "nvim-autopairs"
-      local Rule = require "nvim-autopairs.rule"
-      local cond = require "nvim-autopairs.conds"
-      npairs.add_rules(
-        {
-          Rule("$", "$", { "tex", "latex" })
-            -- don't add a pair if the next character is %
-            :with_pair(cond.not_after_regex "%%")
-            -- don't add a pair if  the previous character is xxx
-            :with_pair(
-              cond.not_before_regex("xxx", 3)
-            )
-            -- don't move right when repeat character
-            :with_move(cond.none())
-            -- don't delete if the next character is xx
-            :with_del(cond.not_after_regex "xx")
-            -- disable adding a newline when you press <cr>
-            :with_cr(cond.none()),
-        },
-        -- disable for .vim files, but it work for another filetypes
-        Rule("a", "a", "-vim")
-      )
-    end,
+    "mikavilpas/yazi.nvim",
+    event = "VeryLazy",
+    keys = {
+      -- 👇 in this section, choose your own keymappings!
+      {
+        "<leader>yy",
+        "<cmd>Yazi<cr>",
+        desc = "Open yazi at the current file",
+      },
+      {
+        -- Open in the current working directory
+        "<leader>yd",
+        "<cmd>Yazi cwd<cr>",
+        desc = "Open the file manager in nvim's working directory",
+      },
+      {
+        "<leader>ys",
+        "<cmd>Yazi toggle<cr>",
+        desc = "Resume the last yazi session",
+      },
+    },
+    opts = {
+      -- if you want to open yazi instead of netrw, see below for more info
+      open_for_directories = false,
+      keymaps = {
+        show_help = "<f1>",
+      },
+    },
   },
+  -- {
+  --   "windwp/nvim-autopairs",
+  --   config = function(plugin, opts)
+  --     require "astronvim.plugins.configs.nvim-autopairs"(plugin, opts) -- include the default astronvim config that calls the setup call
+  --     -- add more custom autopairs configuration such as custom rules
+  --     local npairs = require "nvim-autopairs"
+  --     local Rule = require "nvim-autopairs.rule"
+  --     local cond = require "nvim-autopairs.conds"
+  --     npairs.setup({
+  --       disable_in_replace_mode = false,
+  --     })
+  --     npairs.add_rules(
+  --       {
+  --         Rule("$", "$", { "tex", "latex" })
+  --           -- don't add a pair if the next character is %
+  --           :with_pair(cond.not_after_regex "%%")
+  --           -- don't add a pair if  the previous character is xxx
+  --           :with_pair(
+  --             cond.not_before_regex("xxx", 3)
+  --           )
+  --           -- don't move right when repeat character
+  --           :with_move(cond.none())
+  --           -- don't delete if the next character is xx
+  --           :with_del(cond.not_after_regex "xx")
+  --           -- disable adding a newline when you press <cr>
+  --           :with_cr(cond.none()),
+  --       },
+  --       -- disable for .vim files, but it work for another filetypes
+  --       Rule("a", "a", "-vim")
+  --     )
+  --   end,
+  -- },
 }

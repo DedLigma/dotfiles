@@ -7,5 +7,6 @@ return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.colorscheme.vscode-nvim" },
+  { import = "astrocommunity.editing-support.ultimate-autopair-nvim" },
   -- import/override with your plugins folder
 }
