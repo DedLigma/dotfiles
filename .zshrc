@@ -1,38 +1,16 @@
 export ZSH="$HOME/.oh-my-zsh"
-
 export EDITOR=helix
-ZSH_THEME="kphoen"
-
+ZSH_THEME="strug"
+# ZSH_THEME="kphoen"
+# ZSH_THEME="trapd00r"
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="~/.npm-global/bin:$PATH"
-
 export PATH="$PATH:$HOME/.cargo/bin"
-
-
 alias ls='ls --hyperlink=auto --color=auto'
-alias hx='helix'
-alias gt='gitui'
-
-clg() {
-  if [[ $1 == *.cpp ]]; then
-    clang++ -std=c++20 "$@"
-  elif [[ $1 == *.c ]]; then
-    clang "$@"
-  else
-    echo "Unknown file type"
-  fi
-}
-
-tt() {
-  text=\"$@\"
-  trans :ru "$text"
-}
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-
 function az() {
     tmp="$(mktemp -t "yazi-cwd.XXXXX")"
     yazi --cwd-file="$tmp"
@@ -41,10 +19,9 @@ function az() {
     fi
     rm -f -- "$tmp"
 }
-
 plugins=(
   git 
   command-not-found
 )
-
 source $ZSH/oh-my-zsh.sh
+

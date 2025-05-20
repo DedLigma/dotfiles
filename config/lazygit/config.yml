@@ -5,3 +5,8 @@ os:
   editInTerminal: true
   openDirInEditor: '$EDITOR {{dir}}'
   open: '$EDITOR --goto {{filename}}'
+
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
