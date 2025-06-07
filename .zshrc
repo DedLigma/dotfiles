@@ -8,6 +8,8 @@ export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="~/.npm-global/bin:$PATH"
 export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/go/bin"
+# export ELECTRON_OZONE_PLATFORM_HINT=x11
 alias ls='ls --hyperlink=auto --color=auto'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm

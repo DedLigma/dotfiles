@@ -27,15 +27,15 @@ mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
 
-# [editor.whitespace]
-# render = "all"
+[editor.whitespace]
+render = "all"
 
 # [editor.whitespace.render]
 # space = "none"
 # tab = "all"
 # nbsp = "all"
 # nnbsp = "all"
-# newline = "all"
+# newline = "none"
 # tabpad = "all"
 
 
@@ -44,7 +44,8 @@ space = "·"
 nbsp = "⍽"
 nnbsp = "␣"
 tab = "→"
-newline = "⏎"
+# newline = "⏎"
+newline = " "
 tabpad = "-"
 
 [keys.normal]
