@@ -27,8 +27,8 @@ mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
 
-[editor.whitespace]
-render = "all"
+# [editor.whitespace]
+# render = "all"
 
 # [editor.whitespace.render]
 # space = "none"
