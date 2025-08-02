@@ -57,9 +57,14 @@ play = [
 	{ run = 'mpv --force-window %*', orphan = true, for = "windows" },
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
+mdt = [
+	{ run = 'mdt "$@"', desc = "mdt (md view)", block = true, for = "unix" }
+]
 
 [open]
 rules = [
+	# Markdown
+	{ name = "*.md", use = [ "mdt" ] },
 	# Folder
 	{ name = "*/", use = [ "edit", "open", "reveal" ] },
 	# Text
@@ -76,7 +81,7 @@ rules = [
 	# Empty file
 	{ mime = "inode/empty", use = [ "edit", "reveal" ] },
 	# Fallback
-	{ name = "*", use = [ "open", "reveal" ] },
+	{ name = "*", use = [ "edit", "open", "reveal" ] },
 ]
 
 [tasks]
@@ -229,3 +234,4 @@ run  = "git"
 id   = "git"
 name = "*/"
 run  = "git"
+

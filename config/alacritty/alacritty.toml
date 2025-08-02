@@ -1,5 +1,5 @@
-# [terminal.shell]
-# program = "wsl"
+[terminal.shell]
+program = "tmux"
 # args = ["-d", "openSUSE-Tumbleweed", "--", "cd /home/dedligma/ && tmux"]
 
 [font]

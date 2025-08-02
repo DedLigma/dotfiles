@@ -3,6 +3,7 @@ require("git"):setup()
 require("session"):setup {
 	sync_yanked=true,
 }
+
 Status:children_add(function(self)
 	local h = self._current.hovered
 	if h and h.link_to then
