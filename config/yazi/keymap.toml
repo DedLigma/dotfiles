@@ -369,10 +369,22 @@ keymap = [
 	{ on = "f", run = "filter", desc = "Filter help items" },
 ]
 
-
 [[mgr.prepend_keymap]]
-on  = "y"
-run = [ 'shell -- for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list', "yank" ]
+on   = "!"
+for  = "unix"
+run  = 'shell "$SHELL" --block'
+desc = "Open $SHELL here"
+
+# If you also using Yazi on Windows:
+[[mgr.prepend_keymap]]
+on   = "!"
+for  = "windows"
+run  = 'shell "powershell.exe" --block'
+desc = "Open PowerShell here"
+
+# [[mgr.prepend_keymap]]
+# on  = "y"
+# run = [ 'shell -- for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list', "yank" ]
 
 [[mgr.prepend_keymap]]
 on = [ "g", "r" ]

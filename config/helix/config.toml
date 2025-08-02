@@ -1,7 +1,7 @@
 # theme="dark_plus"
 # theme = "new_moon"
-theme = "fleet_dark"
-# theme = "ao"
+# theme = "fleet_dark"
+theme = "ao"
 # theme = "pop-dark"
 
 [editor]
@@ -38,7 +38,6 @@ mode.select = "SELECT"
 # newline = "none"
 # tabpad = "all"
 
-
 [editor.whitespace.characters]
 space = "·"
 nbsp = "⍽"
@@ -48,7 +47,16 @@ tab = "→"
 newline = " "
 tabpad = "-"
 
+[keys.normal.C-y]
+# Open the file(s) in the current window
+y = ":sh zellij run -n Yazi -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- bash ~/.config/helix/yazi-picker.sh open %{buffer_name}"
+# Open the file(s) in a vertical split
+v = ":sh zellij run -n Yazi -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- bash ~/.config/helix/yazi-picker.sh vsplit %{buffer_name}"
+# Open the file(s) in a horizontal split
+h = ":sh zellij run -n Yazi -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- bash ~/.config/helix/yazi-picker.sh hsplit %{buffer_name}"
+
 [keys.normal]
+C-y = ":sh zellij run -n Yazi -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- bash ~/.config/helix/yazi-picker.sh open %{buffer_name}"
 "," = []
 "." = ["global_search"]
 A-x = "extend_to_line_bounds"
@@ -56,7 +64,6 @@ A-x = "extend_to_line_bounds"
 "A-і" = ["split_selection_on_newline"]
 C-n = ["move_line_down", "scroll_down"]
 C-p = ["move_line_up", "scroll_up"]
-C-y = "yank_to_clipboard"
 "C-а" = ["page_down"]
 "C-в" = ["page_cursor_half_down"]
 "C-г" = ["page_cursor_half_up"]
