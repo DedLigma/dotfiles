@@ -1,3 +1,19 @@
 # dotfiles
 
-All configs was written for KDE system usage.
+configs:
+- ~~alacritty~~
+- foot
+- gitui
+- helix
+- lazygit
+- ~~neovim~~
+- ~~tmux~~
+- yazi
+- zellij
+
+other:
+- btop
+- delta
+- mdt
+- onefetch
+- scc
